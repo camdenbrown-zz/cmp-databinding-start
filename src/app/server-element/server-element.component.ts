@@ -11,7 +11,8 @@ import {
   AfterViewInit,
   OnDestroy,
   ViewChild,
-  ElementRef } from '@angular/core';
+  ElementRef,
+  ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -28,6 +29,7 @@ export class ServerElementComponent implements OnInit,
                                                OnDestroy {
   @Input() name: string;
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called');
@@ -60,6 +62,7 @@ export class ServerElementComponent implements OnInit,
   ngAfterViewInit() {
     console.log('ngAfterViewInit fired!');
     console.log('textContent', this.header.nativeElement.textContent);
+    console.log('paragraphContent', this.paragraph.nativeElement.textContent);
   }
 
   ngOnDestroy() {
