@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [];
+  incrementResult: string;
+  counter: number;
+
+  onGameIncrement(gameData: { counter: number }) {
+    this.counter = gameData.counter;
+    if ( gameData.counter % 2 === 0) {
+      this.incrementResult = 'even';
+    } else {
+      this.incrementResult = 'odd';
+    }
+  }
 
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
