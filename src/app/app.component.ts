@@ -10,9 +10,9 @@ export class AppComponent {
   incrementResult: string;
   counter: number;
 
-  onGameIncrement(gameData: { counter: number }) {
-    this.counter = gameData.counter;
-    if ( gameData.counter % 2 === 0) {
+  onGameIncrement(counter: number) {
+    this.counter = counter;
+    if ( counter % 2 === 0) {
       this.incrementResult = 'even';
     } else {
       this.incrementResult = 'odd';
